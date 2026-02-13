@@ -18,8 +18,9 @@ A Flask-based chatbot that provides cryptocurrency recommendations based on user
 git clone https://github.com/<your-username>/ai-crypto-chatbot.git
 cd ai-crypto-chatbot
 
- 2. Install the dependencies:
+2. Install the dependencies:
 pip install -r requirements.txt
+
 3. Run the Flask app:
 python app.py
 Your app will be running at http://127.0.0.1:5000/.
@@ -36,6 +37,7 @@ Example of POST request (via Postman or cURL):
     }
   }
 }
+
 Deployment
 The app can be deployed to Google Cloud App Engine for public access. The deployment steps are still pending due to permission and bucket configuration issues.
 
