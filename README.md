@@ -1,4 +1,4 @@
-Yes, I see the problem from the screenshot.The Installation section is broken because all the commands got merged into one single code block, making it look messy. Here's the fixed and clean version that will display properly:markdown
+
 
 # AI Crypto Chatbot
 
