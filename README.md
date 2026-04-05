@@ -1,36 +1,45 @@
-AI Crypto Chatbot
-A Flask-based chatbot that provides cryptocurrency recommendations based on user input. It fetches real-time data from the CoinGecko API and suggests top-performing cryptocurrencies based on market cap, volume, and popularity.
 
-Features
-Real-time cryptocurrency data from the CoinGecko API
 
-Dialogflow webhook integration
+# AI Crypto Chatbot
 
-Customizable recommendation criteria (market cap, volume, popularity)
+A simple Flask-based webhook for Dialogflow that provides real-time cryptocurrency recommendations using the **CoinGecko API**.
 
-Easy to run locally using Flask
+It suggests the top cryptocurrency based on user-selected criteria like market cap, volume, or popularity.
 
-Installation
-1. Clone the repository
-bash
-git clone https://github.com/<your-username>/ai-crypto-chatbot.git
+## Features
+
+- Real-time data from CoinGecko API
+- Dialogflow webhook integration
+- Supports multiple recommendation criteria:
+  - Market Cap
+  - Trading Volume
+  - Popularity / Interest
+- Lightweight and easy to deploy
+
+## Tech Stack
+
+- Python 3
+- Flask
+- CoinGecko API
+
+## Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ai-crypto-chatbot.git
 cd ai-crypto-chatbot
-2. Install dependencies
-bash
-pip install -r requirements.txt
-3. Run the Flask app
-bash
+
+2. Install Dependenciesbash
+
+pip install flask requests
+
+3. Run Locallybash
+
 python app.py
-Your app will be running at:
-http://127.0.0.1:5000/
 
-API Endpoints
-/webhook
-Dialogflow webhook endpoint for processing cryptocurrency recommendations.
+The app will start at: http://127.0.0.1:5000API EndpointsGET /Simple health check / welcome message.POST /webhookDialogflow webhook endpoint.Example Request:json
 
-Example POST request:
-
-json
 {
   "queryResult": {
     "action": "crypto_recommendation",
@@ -39,38 +48,35 @@ json
     }
   }
 }
-Deployment (Google Cloud App Engine)
-1. Create app.yaml
-yaml
+
+Supported Criteria:market_cap (default)
+volume
+popularity
+growth
+
+Usage Examples (Dialogflow)"Recommend me a cryptocurrency by market cap"
+"Show top coin by volume"
+"What is the most popular crypto right now?"
+
+Note: Currently, the bot returns only the top 1 coin based on the selected criteria.Deployment (Google Cloud App Engine)Create an app.yaml file:yaml
+
 runtime: python310
-entrypoint: gunicorn -b :$PORT app:app
+entrypoint: python app.py
 
 instance_class: F2
 
-env_variables:
-  FLASK_ENV: "production"
+Then deploy:bash
 
-handlers:
-  - url: /favicon.ico
-    static_files: favicon.ico
-    upload: favicon.ico
-
-  - url: /.*
-    script: auto
-2. Deploy the app
-bash
 gcloud app deploy
-3. Access the deployed app
-Code
-https://<your-project-id>.uc.r.appspot.com/
-Technologies Used
-Python 3.x
 
-Flask
+Your app URL will be: https://YOUR_PROJECT_ID.uc.r.appspot.comLimitations (Current Version)Returns only one recommended coin
+No limit parameter support yet
+No advanced formatting or multiple suggestions
+Basic error handling
 
-CoinGecko API
+Future ImprovementsReturn top 5–10 coins
+Add price, 24h change, and market cap in response
+Better natural language handling
+Add more criteria (24h gainers, etc.)
 
-Dialogflow
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
