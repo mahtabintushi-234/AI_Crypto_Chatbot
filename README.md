@@ -1,43 +1,31 @@
+Yes, I see the problem from the screenshot.The Installation section is broken because all the commands got merged into one single code block, making it look messy. Here's the fixed and clean version that will display properly:markdown
 
 # AI Crypto Chatbot
 
-A simple Flask-based webhook for Dialogflow that provides real-time cryptocurrency recommendations using the **CoinGecko API**.
-
-It suggests the top cryptocurrency based on user-selected criteria like market cap, volume, or popularity.
+A simple Flask webhook for Google Dialogflow that recommends the top cryptocurrency using the CoinGecko API.
 
 ## Features
 
 - Real-time data from CoinGecko API
 - Dialogflow webhook integration
-- Supports multiple recommendation criteria:
-  - Market Cap
-  - Trading Volume
-  - Popularity / Interest
-- Lightweight and easy to deploy
-
-## Tech Stack
-
-- Python 3
-- Flask
-- CoinGecko API
+- Supports criteria: `market_cap`, `volume`, `popularity`, `growth`
 
 ## Installation
 
-### 1. Clone the Repository
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/ai-crypto-chatbot.git
+   cd ai-crypto-chatbot
 
-```bash
-git clone https://github.com/YOUR_USERNAME/ai-crypto-chatbot.git
-cd ai-crypto-chatbot
-
-2. Install Dependenciesbash
+Install dependencies:bash
 
 pip install flask requests
 
-3. Run Locallybash
+Run the application:bash
 
 python app.py
 
-The app will start at: http://127.0.0.1:5000API EndpointsGET /Simple health check / welcome message.POST /webhookDialogflow webhook endpoint.Example Request:json
+The app will be available at: http://127.0.0.1:5000Webhook EndpointPOST /webhookExample request:json
 
 {
   "queryResult": {
@@ -48,34 +36,18 @@ The app will start at: http://127.0.0.1:5000API EndpointsGET /Simple health chec
   }
 }
 
-Supported Criteria:market_cap (default)
-volume
-popularity
-growth
-
-Usage Examples (Dialogflow)"Recommend me a cryptocurrency by market cap"
-"Show top coin by volume"
-"What is the most popular crypto right now?"
-
-Note: Currently, the bot returns only the top 1 coin based on the selected criteria.Deployment (Google Cloud App Engine)Create an app.yaml file:yaml
+Deployment (Google App Engine)Create app.yaml:yaml
 
 runtime: python310
-entrypoint: python app.py
+entrypoint: gunicorn -b :$PORT app:app
 
-instance_class: F2
-
-Then deploy:bash
+Deploy:bash
 
 gcloud app deploy
 
-Your app URL will be: https://YOUR_PROJECT_ID.uc.r.appspot.comLimitations (Current Version)Returns only one recommended coin
-No limit parameter support yet
-No advanced formatting or multiple suggestions
-Basic error handling
+LicenseMIT License
 
-Future ImprovementsReturn top 5–10 coins
-Add price, 24h change, and market cap in response
-Better natural language handling
-Add more criteria (24h gainers, etc.)
+---
 
+Would you like me to make it even shorter, or add anything else? Just copy the whole thing above into your `README.md` file.
 
