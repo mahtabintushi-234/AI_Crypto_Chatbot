@@ -49,5 +49,4 @@ LicenseMIT License
 
 ---
 
-Would you like me to make it even shorter, or add anything else? Just copy the whole thing above into your `README.md` file.
 
