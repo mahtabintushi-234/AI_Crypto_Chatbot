@@ -1,5 +1,4 @@
 
-
 # AI Crypto Chatbot
 
 A simple Flask-based webhook for Dialogflow that provides real-time cryptocurrency recommendations using the **CoinGecko API**.
